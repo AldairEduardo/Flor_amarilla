@@ -1,96 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-body{
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     color: azure;
-    width: 100%;
-    height: 82vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 24px;
+    padding: 24px 16px;
+    text-align: center;
     background-color: black;
+    overflow-x: hidden;
 }
 
-.botones {
-    padding: 9px;
-    border-radius: 80px;
-    background-color: transparent;
-    border: none;
+.portada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
 }
 
-.botones a {
-    background-color: #ffda03;
-    padding: 9px;
-    border-radius: 80px;
-    transition: all 0.3s ease;
-}
-
-.botones a:focus {
-    background-color: #FF1A03;
-    padding: 12px; 
-    transform: scale(1.1); 
-    outline: none; 
-}
-
-.greetings{
-    font-size: 7rem;
+.greetings {
+    display: flex;
+    justify-content: center;
+    font-size: clamp(3rem, 12vw, 7rem);
     font-weight: 900;
+    line-height: 1.1;
+    gap: 0.05em;
 }
-.greetings > span{
+
+.greetings > span {
     animation: glow 2.5s ease-in-out infinite;
 }
-@keyframes glow{
-    0%, 100%{
+
+@keyframes glow {
+    0%, 100% {
         color: #ffda03;
         text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
     }
-    10%, 90%{
+    10%, 90% {
         color: #111;
         text-shadow: none;
     }
 }
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
-}
-.greetings > span:nth-child(6){
-    animation-delay: 1s;
+
+.greetings > span:nth-child(2) { animation-delay: .2s; }
+.greetings > span:nth-child(3) { animation-delay: .4s; }
+.greetings > span:nth-child(4) { animation-delay: .6s; }
+.greetings > span:nth-child(5) { animation-delay: .8s; }
+
+.description {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    font-weight: 500;
+    color: #eee;
+    max-width: 90vw;
 }
 
-.description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.button a{
-    text-decoration: none;
-    font-size: 1rem;
+.boton {
+    display: inline-block;
+    background-color: #ffda03;
     color: #111;
-    font-weight: bolder;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 80px;
+    min-height: 48px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 4rem;
-        font-weight: 800;
-        text-align: center;
+.boton:hover {
+    background-color: #f5d000;
+    transform: scale(1.05);
+}
+
+.boton:focus-visible {
+    outline: 3px solid #39c6d6;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .greetings > span {
+        animation: none;
+        color: #ffda03;
     }
-    .description{
-        font-size: 2rem;
-    }
-    
-    .button a{
-        font-size: 1rem;
+    .boton {
+        transition: none;
     }
 }
